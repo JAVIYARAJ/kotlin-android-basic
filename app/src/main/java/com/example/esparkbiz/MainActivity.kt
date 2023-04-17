@@ -1,18 +1,22 @@
 package com.example.esparkbiz
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.RelativeLayout
+import android.os.StrictMode
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
+import com.example.esparkbiz.layouts.LinearLayout
+
 
 class MainActivity : AppCompatActivity() {
 
-    @SuppressLint("ResourceType")
+    @SuppressLint("ResourceType", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        /*
         var names = arrayOf(1, 2, 3);
 
         names.forEach {
@@ -103,9 +107,9 @@ class MainActivity : AppCompatActivity() {
         }.displayReport();
 
         //run keyword in kotlin-> in this we not need to write this keyword also we can also return something.
-        var runResult=eReport1.run {
-            employeeName="raj";
-            employeeCity="junagadh"
+        var runResult = eReport1.run {
+            employeeName = "raj";
+            employeeCity = "junagadh"
             "success"
         }
 
@@ -117,7 +121,7 @@ class MainActivity : AppCompatActivity() {
         //also keyword in kotlin
         Log.d("Practice", "display using apply for CRUD");
 
-        var cityList= java.util.ArrayList<String>();
+        var cityList = java.util.ArrayList<String>();
 
         cityList.also {
             it.add("keshod");
@@ -131,24 +135,56 @@ class MainActivity : AppCompatActivity() {
         //below code use for practice resource concept.
 
         //get city array from resource
-        var cities=resources.getStringArray(R.array.city_dropdown);
-        cities.forEach {
-            value->Log.d("Practice", "${value}");
+        var cities = resources.getStringArray(R.array.city_dropdown);
+        cities.forEach { value ->
+            Log.d("Practice", "${value}");
         }
 
         //get color from resource and set into container
+        /*
         var mainLayout:RelativeLayout=findViewById(R.id.main_layout);
         mainLayout.setBackgroundColor(resources.getColor(R.color.card_color));
+           */
 
         //get bool value from resource
-        var isVisibleCard=resources.getBoolean(R.bool.card_visibility);
+        var isVisibleCard = resources.getBoolean(R.bool.card_visibility);
         Log.d("Practice", "${isVisibleCard.toString()}");
 
 
         //get any type of array
+        /*
         var icons=resources.obtainTypedArray(R.array.icons);
         var i1= icons.getDrawable(0);
         mainLayout.background=i1;
+        */
+
+        */
+
+        //below code for practice layouts
+        var linearLayout = findViewById<AppCompatButton>(R.id.linearLayout_btn);
+        linearLayout.setOnClickListener {
+            var intent = Intent(this@MainActivity, LinearLayout::class.java);
+            startActivity(intent);
+        };
+
+        var relativeLayout = findViewById<AppCompatButton>(R.id.relativeLayout_btn);
+        relativeLayout.setOnClickListener {
+            var intent = Intent(this@MainActivity, com.example.esparkbiz.layouts.RelativeLayout::class.java);
+            startActivity(intent);
+        };
+
+        var materialCardBtn = findViewById<AppCompatButton>(R.id.materialCard_btn);
+        materialCardBtn.setOnClickListener {
+            var intent = Intent(this@MainActivity, com.example.esparkbiz.layouts.CardActivity::class.java);
+            startActivity(intent);
+        };
+
+        var recyclerViewBtn = findViewById<AppCompatButton>(R.id.recyclerView_btn);
+        recyclerViewBtn.setOnClickListener {
+            var intent = Intent(this@MainActivity, com.example.esparkbiz.layouts.RecyclerActivity::class.java);
+            startActivity(intent);
+        };
+
 
     }
 }

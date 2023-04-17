@@ -1,26 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main_layout"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Esparkbiz"
-        android:visibility="invisible"
-        android:textSize="50sp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+   <androidx.appcompat.widget.AppCompatButton
+       android:layout_margin="20dp"
+       android:textColor="@color/black"
+       android:textSize="20sp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="LinearLayout"
+       android:id="@+id/linearLayout_btn"
+       />
 
-</RelativeLayout>
+   <androidx.appcompat.widget.AppCompatButton
+       android:layout_margin="20dp"
+       android:textColor="@color/black"
+       android:textSize="20sp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Relativelayout"
+       android:id="@+id/relativeLayout_btn"
+       />
+
+   <androidx.appcompat.widget.AppCompatButton
+       android:layout_margin="20dp"
+       android:textColor="@color/black"
+       android:textSize="20sp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Material Card"
+       android:id="@+id/materialCard_btn"
+       />
+
+   <androidx.appcompat.widget.AppCompatButton
+       android:layout_margin="20dp"
+       android:textColor="@color/black"
+       android:textSize="20sp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Recycler view"
+       android:id="@+id/recyclerView_btn"
+       />
+
+
+
+</LinearLayout>

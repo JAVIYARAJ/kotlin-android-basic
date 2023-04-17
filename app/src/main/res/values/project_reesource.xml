@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--    declare dimension for card-->
-    <dimen name="home_card_height">20dp</dimen>
-    <dimen name="home_card_width">20dp</dimen>
-    <dimen name="home_card_text_size">20sp</dimen>
+<!--    &lt;!&ndash;    declare dimension for card&ndash;&gt;-->
+<!--    <dimen name="home_card_height">20dp</dimen>-->
+<!--    <dimen name="home_card_width">20dp</dimen>-->
+<!--    <dimen name="home_card_text_size">20sp</dimen>-->
 
-    <!--    declare colors for card-->
-    <color name="card_color">#FFFFFF85</color>
+<!--    &lt;!&ndash;    declare colors for card&ndash;&gt;-->
+<!--    <color name="card_color">#FFFFFF85</color>-->
 
-    <!--    declare ids for card-->
-    <item name="card_container_id" type="id"/>
+<!--    &lt;!&ndash;    declare ids for card&ndash;&gt;-->
+<!--    <item name="card_container_id" type="id"/>-->
 
-    <integer name="max_count">75</integer>
+<!--    <integer name="max_count">75</integer>-->
 
-    <bool name="card_visibility">true</bool>
+<!--    <bool name="card_visibility">true</bool>-->
 
-    <!-- declare array using integer for card colors  -->
-    <integer-array name="card_colors">
-        <item>@color/black</item>
-        <item>@color/purple_200</item>
-        <item>@color/cardview_dark_background</item>
-        <item>@color/design_default_color_secondary_variant</item>
-    </integer-array>
+<!--    &lt;!&ndash; declare array using integer for card colors  &ndash;&gt;-->
+<!--    <integer-array name="card_colors">-->
+<!--        <item>@color/black</item>-->
+<!--        <item>@color/purple_200</item>-->
+<!--        <item>@color/cardview_dark_background</item>-->
+<!--        <item>@color/design_default_color_secondary_variant</item>-->
+<!--    </integer-array>-->
 
-    <!-- declare array using string for city dropdown  -->
+<!--    &lt;!&ndash; declare array using string for city dropdown  &ndash;&gt;-->
 
-    <string-array name="city_dropdown">
-        <item>keshod</item>
-        <item>Surat</item>
-        <item>Rajkot</item>
-        <item>Junagadh</item>
-    </string-array>
+<!--    <string-array name="city_dropdown">-->
+<!--        <item>keshod</item>-->
+<!--        <item>Surat</item>-->
+<!--        <item>Rajkot</item>-->
+<!--        <item>Junagadh</item>-->
+<!--    </string-array>-->
 
-    <array name="icons">
-        <item>@drawable/ic_logo</item>
-        <item>@drawable/ic_user_pick</item>
-    </array>
+<!--    <array name="icons">-->
+<!--        <item>@drawable/ic_logo</item>-->
+<!--        <item>@drawable/ic_user_pick</item>-->
+<!--    </array>-->
 
-    <array name="icon_colors">
-        <item>@color/purple_200</item>
-        <item>@color/black</item>
-    </array>
+<!--    <array name="icon_colors">-->
+<!--        <item>@color/purple_200</item>-->
+<!--        <item>@color/black</item>-->
+<!--    </array>-->
 
 
 </resources>
