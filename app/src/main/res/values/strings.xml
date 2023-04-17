@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Esparkbiz</string>
+
+    <string name="city_d1">Keshod</string>
+    <string name="city_d2">Rajkot</string>
+    <string name="city_d3">Surat</string>
+    <string name="city_d4">Junagadh</string>
+</resources>
