@@ -1,8 +1,9 @@
 package com.example.esparkbiz.models
 
 data class Employee(
-    var image:Int,
+    var id: Int,
     var name: String,
-    var designation: String,
-    var address: String
+    var email: String,
+    var city: String,
+    var address: String,
 );

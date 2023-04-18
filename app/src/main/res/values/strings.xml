@@ -5,4 +5,12 @@
     <string name="city_d2">Rajkot</string>
     <string name="city_d3">Surat</string>
     <string name="city_d4">Junagadh</string>
+
+    <string-array name="cities">
+        <item>Rajkot</item>
+        <item>Surat</item>
+        <item>Junagadh</item>
+        <item>keshod</item>
+        <item>Somnath</item>
+    </string-array>
 </resources>

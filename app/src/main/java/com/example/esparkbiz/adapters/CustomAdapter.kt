@@ -13,9 +13,9 @@ class CustomAdapter(private val employeeList: ArrayList<Employee>) :
     RecyclerView.Adapter<CustomAdapter.EmployeeViewHolder>() {
 
     class EmployeeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var image: ImageView = view.findViewById(R.id.employee_image);
+        var email: TextView = view.findViewById(R.id.employee_email);
         var name: TextView = view.findViewById(R.id.employee_name);
-        var designation: TextView = view.findViewById(R.id.employee_designation);
+        var city: TextView = view.findViewById(R.id.employee_city);
         var address: TextView = view.findViewById(R.id.employee_address);
     }
 
@@ -28,10 +28,10 @@ class CustomAdapter(private val employeeList: ArrayList<Employee>) :
 
     override fun onBindViewHolder(holder: EmployeeViewHolder, position: Int) {
         var item = employeeList[position];
-        holder.image.setImageResource(item.image);
         holder.name.text = item.name;
-        holder.designation.text = item.designation;
         holder.address.text = item.address;
+        holder.city.text = item.city;
+        holder.email.text = item.email;
 
     }
 

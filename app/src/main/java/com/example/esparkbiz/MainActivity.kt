@@ -4,8 +4,13 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.StrictMode
+import android.view.Menu
+import android.view.MenuItem
+import android.view.WindowManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.Toolbar
 import com.example.esparkbiz.layouts.LinearLayout
 
 
@@ -160,6 +165,13 @@ class MainActivity : AppCompatActivity() {
 
         */
 
+        //set up for full screen
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        );
+
+
         //below code for practice layouts
         var linearLayout = findViewById<AppCompatButton>(R.id.linearLayout_btn);
         linearLayout.setOnClickListener {
@@ -169,22 +181,67 @@ class MainActivity : AppCompatActivity() {
 
         var relativeLayout = findViewById<AppCompatButton>(R.id.relativeLayout_btn);
         relativeLayout.setOnClickListener {
-            var intent = Intent(this@MainActivity, com.example.esparkbiz.layouts.RelativeLayout::class.java);
+            var intent =
+                Intent(this@MainActivity, com.example.esparkbiz.layouts.RelativeLayout::class.java);
             startActivity(intent);
         };
 
         var materialCardBtn = findViewById<AppCompatButton>(R.id.materialCard_btn);
         materialCardBtn.setOnClickListener {
-            var intent = Intent(this@MainActivity, com.example.esparkbiz.layouts.CardActivity::class.java);
+            var intent =
+                Intent(this@MainActivity, com.example.esparkbiz.layouts.CardActivity::class.java);
+            startActivity(intent);
+        };
+
+        var taskRegisterStudentBtn = findViewById<AppCompatButton>(R.id.taskRegisterStudent);
+        taskRegisterStudentBtn.setOnClickListener {
+            var intent =
+                Intent(this@MainActivity, com.example.esparkbiz.tasks.Task1RegisterScreen::class.java);
             startActivity(intent);
         };
 
         var recyclerViewBtn = findViewById<AppCompatButton>(R.id.recyclerView_btn);
         recyclerViewBtn.setOnClickListener {
-            var intent = Intent(this@MainActivity, com.example.esparkbiz.layouts.RecyclerActivity::class.java);
+            var intent = Intent(
+                this@MainActivity,
+                com.example.esparkbiz.layouts.RecyclerActivity::class.java
+            );
             startActivity(intent);
         };
 
 
+        //set up for option menu in toolbar
+        var mainActivityToolbar = findViewById<Toolbar>(R.id.main_activity_toolbar);
+        setSupportActionBar(mainActivityToolbar);
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_option_menu, menu);
+        return true;
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.homeOption -> {
+                displayToast("Home");
+                true;
+            }
+            R.id.settingOption -> {
+                displayToast("Setting");
+                true;
+            }
+            R.id.helpOption -> {
+                displayToast("Help");
+                true;
+            }
+            else -> {
+                false;
+            }
+        }
+    }
+
+    fun displayToast(title: String) {
+        Toast.makeText(applicationContext, title, Toast.LENGTH_LONG).show();
     }
 }
