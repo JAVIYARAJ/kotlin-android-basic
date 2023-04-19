@@ -3,7 +3,6 @@ package com.example.esparkbiz
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.os.StrictMode
 import android.view.Menu
 import android.view.MenuItem
 import android.view.WindowManager
@@ -196,9 +195,20 @@ class MainActivity : AppCompatActivity() {
         var taskRegisterStudentBtn = findViewById<AppCompatButton>(R.id.taskRegisterStudent);
         taskRegisterStudentBtn.setOnClickListener {
             var intent =
-                Intent(this@MainActivity, com.example.esparkbiz.tasks.Task1RegisterScreen::class.java);
+                Intent(
+                    this@MainActivity,
+                    com.example.esparkbiz.tasks.Task1RegisterScreen::class.java
+                );
             startActivity(intent);
         };
+
+        var userAuthBtn = findViewById<AppCompatButton>(R.id.userAuth);
+        userAuthBtn.setOnClickListener {
+            var intent =
+                Intent(this@MainActivity, RegisterScreen::class.java);
+            startActivity(intent);
+        };
+
 
         var recyclerViewBtn = findViewById<AppCompatButton>(R.id.recyclerView_btn);
         recyclerViewBtn.setOnClickListener {

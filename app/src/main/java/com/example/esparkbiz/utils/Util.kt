@@ -2,6 +2,7 @@ package com.example.esparkbiz.utils
 
 import android.content.ContentValues
 import android.content.Context
+import android.content.SharedPreferences
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import java.security.AccessControlContext
@@ -17,7 +18,6 @@ class Util {
             values: MutableMap<String, Any>,
             context: Context,
             prefName: String,
-            isOldValue:Boolean
         ) {
 
             var sharedPreferences = context.getSharedPreferences(
@@ -30,6 +30,12 @@ class Util {
                 sharedPreferences.putString(i.key, i.value.toString());
             }
             sharedPreferences.apply();
+        }
+
+        fun clearSharedPreference(prefName: String, context: Context) {
+            var sharedPreferences =
+                context.getSharedPreferences(prefName, AppCompatActivity.MODE_PRIVATE).edit();
+            sharedPreferences.clear().apply();
         }
 
     }

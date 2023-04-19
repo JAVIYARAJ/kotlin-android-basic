@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.os.StrictMode
 import android.os.StrictMode.ThreadPolicy
 import android.os.StrictMode.VmPolicy
+import android.text.Editable
 import android.util.Log
+import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.example.esparkbiz.R
@@ -25,11 +27,41 @@ class LinearLayout : AppCompatActivity() {
         var email = findViewById<TextInputEditText>(R.id.user_email);
         var city = findViewById<TextInputEditText>(R.id.user_city);
         var address = findViewById<TextInputEditText>(R.id.user_address);
-        var image = R.drawable.ic_logo;
+        var rememberCheckBox = findViewById<CheckBox>(R.id.rememberMeCheckbox);
+
+        var sharedPreferences = applicationContext.getSharedPreferences("user_info", MODE_PRIVATE);
+        var nameText: String? = sharedPreferences.getString("name", null);
+        var emailText: String? = sharedPreferences.getString("email", null);
+        var cityText: String? = sharedPreferences.getString("city", null);
+        var addressText: String? = sharedPreferences.getString("address", null);
+        var isRemember: String? = sharedPreferences.getString("isRemember", null);
+
+        if (nameText != null && emailText != null && cityText != null && addressText != null) {
+            username.setText(nameText);
+            email.setText(emailText);
+            city.setText(cityText);
+            address.setText(addressText);
+            rememberCheckBox.isChecked = isRemember.toBoolean();
+        }
 
         var registerBtn = findViewById<AppCompatButton>(R.id.registerBtn);
 
         registerBtn.setOnClickListener {
+
+            var isRememberChecked = rememberCheckBox.isChecked;
+            if (isRememberChecked) {
+                var data = mutableMapOf<String, Any>();
+                with(data) {
+                    this["name"] = username.text.toString();
+                    this["email"] = email.text.toString();
+                    this["city"] = city.text.toString();
+                    this["address"] = address.text.toString();
+                    this["isRemember"] = true;
+                }
+                Util.saveDataIntoSharedPreference(data, applicationContext, "user_info");
+            } else {
+                Util.clearSharedPreference("user_info", applicationContext);
+            }
 
             var databaseHelper: DatabaseHelper = DatabaseHelper(applicationContext);
 

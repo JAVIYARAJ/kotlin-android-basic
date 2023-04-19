@@ -13,7 +13,7 @@ import com.example.esparkbiz.adapters.CustomAdapter
 import com.example.esparkbiz.database.DatabaseHelper
 
 class RecyclerActivity : AppCompatActivity() {
-    @SuppressLint("Range")
+    @SuppressLint("Range", "NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler)
@@ -45,8 +45,8 @@ class RecyclerActivity : AppCompatActivity() {
 
 
 
-        var adapter = CustomAdapter(list);
+        var adapter = CustomAdapter(list,applicationContext);
         recyclerView.adapter = adapter;
-
+        adapter.notifyDataSetChanged();
     }
 }

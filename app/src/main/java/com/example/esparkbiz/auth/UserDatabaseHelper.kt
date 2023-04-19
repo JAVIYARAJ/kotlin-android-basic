@@ -5,20 +5,20 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 
-class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "Student_Info", null, 1) {
+class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, "Student_Info", null, 1) {
 
     final val ID: String = "ID";
     final val NAME: String = "NAME";
     final val EMAIL: String = "EMAIL";
-    final val CITY: String = "CITY";
-    final val ADDRESS: String = "ADDRESS";
-    final val TABLE: String = "STUDENT";
+    final val PASSWORD: String = "PASSWORD";
+    final val TABLE: String = "USER";
 
 
     override fun onCreate(db: SQLiteDatabase?) {
         val query =
-            "CREATE TABLE $TABLE ($ID INTEGER PRIMARY KEY,$NAME TEXT,$EMAIL TEXT,$CITY TEXT,$ADDRESS TEXT)";
+            "CREATE TABLE $TABLE ($ID INTEGER PRIMARY KEY,$NAME TEXT,$EMAIL TEXT,$PASSWORD TEXT)";
         db?.execSQL(query);
     }
 
@@ -31,16 +31,13 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "Student_Info
     fun insertData(
         name: String,
         email: String,
-        city: String,
-        address: String,
+        password: String,
     ): Long {
         var value = ContentValues();
         with(value) {
             this.put(NAME, name);
             this.put(EMAIL, email);
-            this.put(CITY, city);
-            this.put(ADDRESS, address);
-
+            this.put(PASSWORD, password);
         }
 
         var db = writableDatabase;
@@ -62,17 +59,16 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "Student_Info
     fun editData(
         id: String, name: String,
         email: String,
-        city: String,
+        password: String,
         address: String,
-                 ): Int {
+    ): Int {
 
         var db = writableDatabase;
         var value = ContentValues();
         with(value) {
             this.put(NAME, name);
             this.put(EMAIL, email);
-            this.put(CITY, city);
-            this.put(ADDRESS, address);
+            this.put(PASSWORD, password);
         }
         var result = db.update(TABLE, value, "$ID=?", arrayOf(id));
 
@@ -85,6 +81,24 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "Student_Info
         var result = db.delete(TABLE, "$ID=?", arrayOf(id));
 
         return result;
+    }
+
+    fun getUserInfo(email: String, password: String): Int {
+        var db = writableDatabase;
+
+        var selection = "$EMAIL = ? AND $PASSWORD = ?";
+
+        var result = db.query(
+            TABLE,
+            arrayOf("EMAIL", "PASSWORD"),
+            selection,
+            arrayOf(email, password),
+            null,
+            null,
+            null
+        );
+
+        return  result.count;
     }
 
 }
