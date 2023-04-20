@@ -56,6 +56,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "Student_Info
         var db = writableDatabase;
 
         var result = db.rawQuery(query, null);
+
         return result;
     }
 
@@ -84,6 +85,14 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "Student_Info
         var db = writableDatabase;
         var result = db.delete(TABLE, "$ID=?", arrayOf(id));
 
+        return result;
+    }
+
+    fun filterData(columns:Array<String>?,selectionArgs:String,value:Array<String>?):Cursor{
+
+        var db=writableDatabase;
+
+        var result=db.query(TABLE,columns,selectionArgs,value,null,null,null);
         return result;
     }
 

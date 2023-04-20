@@ -13,4 +13,13 @@
         <item>keshod</item>
         <item>Somnath</item>
     </string-array>
+
+    <string-array name="searchType">
+        <item>NAME</item>
+        <item>EMAIL</item>
+        <item>CITY</item>
+        <item>ADDRESS</item>
+    </string-array>
+
+
 </resources>

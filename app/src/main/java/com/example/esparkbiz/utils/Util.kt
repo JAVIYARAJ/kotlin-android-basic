@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.content.SharedPreferences
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import java.security.AccessControlContext
 import java.util.Objects
@@ -21,8 +22,7 @@ class Util {
         ) {
 
             var sharedPreferences = context.getSharedPreferences(
-                prefName,
-                AppCompatActivity.MODE_PRIVATE
+                prefName, AppCompatActivity.MODE_PRIVATE
             ).edit();
 
 
@@ -38,6 +38,20 @@ class Util {
             sharedPreferences.clear().apply();
         }
 
+        fun displayAlert(context: Context): Boolean {
+            var temp = false;
+            var alertBuilder =
+                AlertDialog.Builder(context).setTitle("esparkbiz").setMessage("Are you sure?");
+            alertBuilder.setPositiveButton("yes") { _, _ -> temp = true; }
+            alertBuilder.setNegativeButton("No") { dialog, _ ->
+                {
+                    temp = false
+                    dialog.dismiss();
+                }
+            }
+            alertBuilder.show();
+            return temp;
+        }
     }
 
 }

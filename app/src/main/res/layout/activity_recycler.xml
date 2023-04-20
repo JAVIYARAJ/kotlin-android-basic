@@ -1,18 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".layouts.RecyclerActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/employee_recyclerview"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/mainPrent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/layout_employee_card">
+        android:orientation="vertical"
+        >
 
-    </androidx.recyclerview.widget.RecyclerView>
+       <androidx.appcompat.widget.LinearLayoutCompat
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           >
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+           <com.google.android.material.textfield.TextInputLayout
+               android:layout_width="0dp"
+               android:layout_weight="5"
+               android:layout_margin="10dp"
+               android:layout_height="wrap_content"
+               style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+               android:hint="Search name"
+               >
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/filterText"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:inputType="text"
+                   android:imeOptions="actionSearch"
+                   />
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+           <com.google.android.material.textfield.TextInputLayout
+               android:layout_width="0dp"
+               android:layout_weight="5"
+               android:layout_margin="10dp"
+               android:layout_height="wrap_content"
+               style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+               android:hint="Search name"
+               >
+               <Spinner
+                   android:id="@+id/queryType"
+                   android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                   android:layout_height="wrap_content"
+                   />
+
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+
+       </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/employee_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/layout_employee_card">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <ImageView
+        android:id="@+id/addNewCard"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_add_icon"
+        android:layout_marginEnd="20dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/dialog_rounded_shape"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="20dp"
+        />
+
+</RelativeLayout>

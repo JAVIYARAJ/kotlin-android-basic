@@ -27,10 +27,10 @@ class EditDataScreen : AppCompatActivity() {
         var intent: Intent? = intent;
 
         if (intent != null) {
-            username.text=intent.getStringExtra("name").toString() as Editable;
-            email.text=intent.getStringExtra("email").toString() as Editable;
-            city.text=intent.getStringExtra("city").toString() as Editable;
-            address.text=intent.getStringExtra("address").toString() as Editable;
+            username.setText(intent.getStringExtra("name").toString())
+            email.setText(intent.getStringExtra("email").toString())
+            city.setText(intent.getStringExtra("city").toString())
+            address.setText(intent.getStringExtra("address").toString())
         }
 
         editDataBtn.setOnClickListener {

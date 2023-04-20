@@ -79,7 +79,10 @@ class LinearLayout : AppCompatActivity() {
             } else {
                 Util.displayToast("Please enter all values", applicationContext);
             }
-
+            username.setText("");
+            email.setText("");
+            city.setText("");
+            address.setText("");
         };
 
 
